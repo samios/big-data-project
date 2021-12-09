@@ -1,7 +1,7 @@
 # big-data-project
 
 Dans ce projet, il vous est demandé de réaliser une application en python qui récupérera en entrée les données issues d'un topic kafka et
-les écrira dans un fichier csv après transformation et enrichissement.
+les écrira dans un fichier csv.
 
 ## Prérequis et recommandations
 
@@ -29,7 +29,7 @@ Ceci reste bien entendu un ensemble de recommandations et toute autre type de d�
 
 ## Projet
 
-On souhaite récupérer des données de vaccination fournies par différents centres situés partout en france en temps réél depuis kafka :
+On souhaite récupérer des données de vaccination fournies par différents centres situés partout en france en temps réél depuis kafka sur un topic nommé **_input_** :
 
 _département;vaccin;date;n_dose1;n_dose2;n_dose3;n_dose4_
 
@@ -54,16 +54,20 @@ avec pour les types de vaccins :
 3 : AstraZeneka
 4 : Janssen
 
+Une fois les données récupérées dans spark on prendra le soin de les écrire dans un fichier _**output.csv**_ en y ajoutant une colonne _**total_dose**_ qui representera le nombre de doses totales administrées dans la journée (n_dose1 + n_dose2 + n_dose3 + n_dose4 )
+)
 
 Comme indiqué plus haut ce programme sera écrit en python en version 3.8 et devra utiliser spark et kafka.
 
-[*hint*](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) 
+Pour vos tests vous pouvez utiliser les données contenues dans le fichier vaccinations.csv comme données en entrées du topic kafka.
+
+
+[*piste d'approche*](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) 
 
 ## Questions
 
-On suppose que le fichier vaccinations.csv soit un output à un instant t de notre programme ( en réalité c'est un fichier soigneusement importé et modifié depuis
-[data.gouv](https://www.data.gouv.fr/fr/pages/donnees-coronavirus/).
-En utilisant la liste des départements de France fournie également dans le dossier, répondre en justifiant (en utilisant spark et python  ) aux questions :
+En partant du fichier vaccinations.csv ( c'est un fichier soigneusement importé et modifié depuis
+[data.gouv](https://www.data.gouv.fr/fr/pages/donnees-coronavirus/) et en utilisant la liste des départements de France fournie également dans le dossier, répondre en justifiant (en utilisant spark et python  ) aux questions :
 
 - Q1 : 
 - Q2 : 
